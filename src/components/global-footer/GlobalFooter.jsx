@@ -41,9 +41,9 @@ const GlobalFooter = () => {
           </div>
         </div>
         <div className="text-center mt-10">
-          <p>Designed and styled by izoogood</p>
+          <p>Designed and styled by Shashwat Deo</p>
           <p>
-            &copy; {new Date().getFullYear()} izoogood. All rights reserved.
+            &copy; {new Date().getFullYear()}  All rights reserved.
           </p>
         </div>
       </div>
