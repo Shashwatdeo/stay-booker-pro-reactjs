@@ -1,4 +1,4 @@
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
 describe('Homepage', () => {
   it('Clicking popular destinations cards navigate user to /hotels route', () => {
