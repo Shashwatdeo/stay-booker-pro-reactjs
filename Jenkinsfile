@@ -2,36 +2,31 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Clone') {
             steps {
-                checkout scm
+                echo 'Cloning repository...'
             }
         }
 
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build('hotel-booking-app')
+                    sh 'docker build -t hotel-booking-app:latest .'
                 }
             }
         }
 
-        stage('Run Tests') {
+        stage('Run Container') {
             steps {
                 script {
-                    // Add any test steps here if needed, for example:
-                    // docker.image('hotel-booking-app').inside {
-                    //     sh 'npm test'
-                    // }
+                    sh 'docker run -d -p 3000:3000 hotel-booking-app:latest'
                 }
             }
         }
 
-        stage('Deploy') {
+        stage('Done') {
             steps {
-                script {
-                    // Add deployment steps here
-                }
+                echo 'Build and Run complete!'
             }
         }
     }
