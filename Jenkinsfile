@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                     // Build Docker image
-                    sh 'docker build -t hotel-booking-app:latest .'
+                    bat 'docker build -t hotel-booking-app:latest .'
                 }
             }
         }
@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     // Run Docker container
-                    sh 'docker run -d -p 3000:3000 hotel-booking-app:latest'
+                    bat 'docker run -d -p 3000:3000 hotel-booking-app:latest'
                 }
             }
         }
