@@ -5,12 +5,15 @@ pipeline {
         stage('Clone') {
             steps {
                 echo 'Cloning repository...'
+                // Clone the repository using the scm (source code management)
+                checkout scm
             }
         }
 
         stage('Build Docker Image') {
             steps {
                 script {
+                    // Build Docker image
                     sh 'docker build -t hotel-booking-app:latest .'
                 }
             }
@@ -19,6 +22,7 @@ pipeline {
         stage('Run Container') {
             steps {
                 script {
+                    // Run Docker container
                     sh 'docker run -d -p 3000:3000 hotel-booking-app:latest'
                 }
             }
