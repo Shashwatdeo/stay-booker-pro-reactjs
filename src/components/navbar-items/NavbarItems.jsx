@@ -50,7 +50,7 @@ const NavbarItems = ({ isAuthenticated, onHamburgerMenuToggle }) => {
           }`}
           onClick={onHamburgerMenuToggle}
         >
-          Home
+          Home-Page
         </Link>
       </li>
       <li className="p-4 hover:bg-blue-900 md:hover:bg-brand">
