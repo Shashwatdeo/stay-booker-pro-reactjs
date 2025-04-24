@@ -5,6 +5,7 @@ FROM node:20.16.0
 WORKDIR /app
 
 # Copy package.json and package-lock.json
+
 COPY package.json package-lock.json ./
 
 # Install dependencies
