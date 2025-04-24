@@ -28,6 +28,18 @@ pipeline {
             }
         }
 
+        stage('Push to Docker Hub') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    bat '''
+                        echo %DOCKER_PASS% | docker login --username %DOCKER_USER% --password-stdin
+                        docker tag hotel-booking-app:latest %DOCKER_USER%/hotel-booking-app:latest
+                        docker push %DOCKER_USER%/hotel-booking-app:latest
+                    '''
+                }
+            }
+        }
+
         stage('Done') {
             steps {
                 echo 'Build and Run complete!'
