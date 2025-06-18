@@ -2,7 +2,7 @@
 
 **Stay Booker Pro** is a production-ready hotel booking website built with modern web technologies. It is designed to be a fully functional and responsive web application for hotel booking services.
 
-> 🔧 For the backend API, check out: [`staybooker-express-api`](https://github.com/iZooGooD/stay-booker-hotel-booking-express-api)
+> 🔧 For the backend API, check out: [`staybooker-express-api`](https://github.com/Shashwatdeo/staty-booker-pro-express-api.git)
 
 ---
 
