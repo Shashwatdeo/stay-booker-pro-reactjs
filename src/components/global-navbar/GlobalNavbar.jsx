@@ -16,23 +16,25 @@ const GlobalNavbar = () => {
   };
 
   return (
-    <div className="relative flex flex-wrap justify-between items-center px-4 md:px-12 global-navbar__container bg-brand brand-divider-bottom shadow-md">
-      <div className="flex">
-        <Link to="/">
-          <img src={logo} alt="site logo" className="site-logo__img" />
+    <div className="sticky top-0 z-50 flex flex-wrap justify-between items-center px-4 md:px-12 py-3 global-navbar__container bg-brand brand-divider-bottom shadow-lg transition-all duration-300">
+      <div className="flex items-center">
+        <Link
+          to="/"
+          className="hover:opacity-90 transition-opacity duration-200"
+        >
+          <img src={logo} alt="site logo" className="site-logo__img h-10" />
         </Link>
       </div>
-      <ul className="list-none hidden md:flex">
+      <ul className="list-none hidden md:flex space-x-8">
         <NavbarItems isAuthenticated={isAuthenticated} />
       </ul>
-      <FontAwesomeIcon
+      <button
         data-testid="menu-toggle__button"
-        icon={faBars}
-        size="2x"
-        color="#fff"
-        className="block md:hidden"
+        className="block md:hidden p-2 hover:bg-brand-secondary rounded-lg transition-colors duration-200"
         onClick={onHamburgerMenuToggle}
-      />
+      >
+        <FontAwesomeIcon icon={faBars} size="2x" color="#fff" />
+      </button>
       <HamburgerMenu
         isVisible={isVisible}
         onHamburgerMenuToggle={onHamburgerMenuToggle}

@@ -1,6 +1,11 @@
-import { faLocationDot, faPerson } from '@fortawesome/free-solid-svg-icons';
+import {
+  faLocationDot,
+  faPerson,
+  faSearch,
+} from '@fortawesome/free-solid-svg-icons';
 import DateRangePicker from 'components/ux/data-range-picker/DateRangePicker';
 import Input from 'components/ux/input/Input';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 /**
  * GlobalSearchBox Component
@@ -35,34 +40,43 @@ const GlobalSearchBox = (props) => {
     dateRange,
   } = props;
   return (
-    <div className="flex flex-wrap flex-col lg:flex-row hero-content__search-box">
-      <Input
-        size="sm"
-        value={locationInputValue}
-        typeheadResults={locationTypeheadResults}
-        icon={faLocationDot}
-        onChangeInput={onLocationChangeInput}
-      />
-      <DateRangePicker
-        isDatePickerVisible={isDatePickerVisible}
-        onDatePickerIconClick={onDatePickerIconClick}
-        onDateChangeHandler={onDateChangeHandler}
-        setisDatePickerVisible={setisDatePickerVisible}
-        dateRange={dateRange}
-      />
-      <Input
-        size="sm"
-        value={numGuestsInputValue}
-        onChangeInput={onNumGuestsInputChange}
-        placeholder="No. of guests"
-        icon={faPerson}
-        type="number"
-      />
+    <div className="flex flex-wrap flex-col lg:flex-row gap-4 p-6 bg-white rounded-xl shadow-lg hero-content__search-box">
+      <div className="flex-1 min-w-[200px]">
+        <Input
+          size="sm"
+          value={locationInputValue}
+          typeheadResults={locationTypeheadResults}
+          icon={faLocationDot}
+          onChangeInput={onLocationChangeInput}
+          className="w-full"
+        />
+      </div>
+      <div className="flex-1 min-w-[200px]">
+        <DateRangePicker
+          isDatePickerVisible={isDatePickerVisible}
+          onDatePickerIconClick={onDatePickerIconClick}
+          onDateChangeHandler={onDateChangeHandler}
+          setisDatePickerVisible={setisDatePickerVisible}
+          dateRange={dateRange}
+        />
+      </div>
+      <div className="flex-1 min-w-[200px]">
+        <Input
+          size="sm"
+          value={numGuestsInputValue}
+          onChangeInput={onNumGuestsInputChange}
+          placeholder="No. of guests"
+          icon={faPerson}
+          type="number"
+          className="w-full"
+        />
+      </div>
       <button
-        className="w-full md:w-auto sb__button--secondary bg-brand-secondary hover:bg-yellow-600 px-4 py-2 text-white"
+        className="flex items-center justify-center gap-2 w-full lg:w-auto bg-brand-secondary hover:bg-brand-secondary/90 px-6 py-3 text-white font-medium rounded-lg transition-colors duration-200"
         onClick={onSearchButtonAction}
       >
-        SEARCH
+        <FontAwesomeIcon icon={faSearch} />
+        <span>SEARCH</span>
       </button>
     </div>
   );
